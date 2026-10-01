@@ -1,0 +1,1562 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday | My Love</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #080b12;
+            color: #f2f2f2;
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           BACKGROUND
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(33, 75, 130, .35),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(190, 150, 70, .16),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 50% 90%,
+                    rgba(24, 51, 86, .35),
+                    transparent 30%
+                ),
+
+                #080b12;
+        }
+
+        /* =========================================
+           STARS
+        ========================================= */
+
+        .star {
+            position: fixed;
+            color: #d8b86a;
+            opacity: .5;
+            pointer-events: none;
+            z-index: -1;
+
+            animation: starFloat linear infinite;
+        }
+
+        @keyframes starFloat {
+
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: .6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================================
+           OPENING
+        ========================================= */
+
+        #opening {
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+        .opening-card {
+
+            width: min(650px, 100%);
+
+            padding: 60px 40px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(18, 24, 36, .95),
+                    rgba(8, 12, 19, .92)
+                );
+
+            border: 1px solid rgba(216, 184, 106, .22);
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.5),
+                inset 0 0 40px rgba(255,255,255,.02);
+
+            backdrop-filter: blur(20px);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .opening-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            background: rgba(216,184,106,.08);
+
+            border-radius: 50%;
+
+            top: -120px;
+            right: -100px;
+
+            filter: blur(10px);
+        }
+
+        .opening-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            background: rgba(40,100,180,.08);
+
+            border-radius: 50%;
+
+            bottom: -100px;
+            left: -80px;
+
+            filter: blur(10px);
+        }
+
+        .eyebrow {
+
+            color: #c9aa62;
+
+            font-size: 12px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .opening-icon {
+
+            font-size: 65px;
+
+            margin-bottom: 20px;
+
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+        .opening-card h1 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(48px, 8vw, 78px);
+
+            line-height: 1.05;
+
+            color: #ffffff;
+
+            margin-bottom: 20px;
+        }
+
+        .opening-card h1 span {
+
+            color: #d8b86a;
+        }
+
+        .opening-card p {
+
+            color: #aeb5c0;
+
+            line-height: 1.8;
+
+            max-width: 480px;
+
+            margin: 0 auto 32px;
+        }
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .btn {
+
+            border: 1px solid rgba(216,184,106,.5);
+
+            background: linear-gradient(
+                135deg,
+                #c9a95e,
+                #e0c47a
+            );
+
+            color: #101218;
+
+            padding: 14px 28px;
+
+            border-radius: 50px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+            box-shadow:
+                0 10px 30px rgba(216,184,106,.18);
+        }
+
+        .btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px rgba(216,184,106,.3);
+        }
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        #main {
+            display: none;
+        }
+
+        section {
+            padding: 110px 20px;
+        }
+
+        .container {
+
+            width: min(1100px, 100%);
+
+            margin: auto;
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-icon {
+
+            font-size: 75px;
+
+            margin-bottom: 20px;
+
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .hero .eyebrow {
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(48px, 9vw, 90px);
+
+            color: white;
+
+            line-height: 1;
+        }
+
+        .hero .name {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(38px, 7vw, 65px);
+
+            font-style: italic;
+
+            color: #d8b86a;
+
+            margin-top: 12px;
+        }
+
+        .hero p {
+
+            max-width: 650px;
+
+            margin: 28px auto;
+
+            color: #aeb5c0;
+
+            line-height: 1.9;
+        }
+
+        /* =========================================
+           SECTION TITLE
+        ========================================= */
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+
+            display: block;
+
+            color: #c9a95e;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .section-title h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(35px, 6vw, 55px);
+
+            color: #ffffff;
+        }
+
+        /* =========================================
+           MESSAGE
+        ========================================= */
+
+        .message-card {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 55px 45px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20,28,42,.9),
+                    rgba(11,15,23,.95)
+                );
+
+            border: 1px solid rgba(255,255,255,.06);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.3);
+        }
+
+        .message-icon {
+
+            font-size: 35px;
+
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+        .message-card p {
+
+            text-align: center;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(21px, 3vw, 30px);
+
+            line-height: 1.7;
+
+            color: #e9e9e9;
+        }
+
+        .gold-line {
+
+            width: 70px;
+
+            height: 2px;
+
+            background: #d8b86a;
+
+            margin: 25px auto 0;
+        }
+
+        /* =========================================
+           MEMORIES
+        ========================================= */
+
+        .memories {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .memory-card {
+
+            min-height: 330px;
+
+            border-radius: 25px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border: 1px solid rgba(255,255,255,.07);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #182437,
+                    #0e141f
+                );
+
+            transition: .4s;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            padding: 22px;
+        }
+
+        .memory-card:nth-child(2) {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #25252a,
+                    #111216
+                );
+        }
+
+        .memory-card:nth-child(3) {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #172d42,
+                    #0c121b
+                );
+        }
+
+        .memory-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(216,184,106,.35);
+
+            box-shadow:
+                0 20px 45px rgba(0,0,0,.35);
+        }
+
+        .memory-icon {
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -65%);
+
+            font-size: 90px;
+
+            filter:
+                drop-shadow(
+                    0 10px 20px rgba(0,0,0,.3)
+                );
+        }
+
+        .memory-text {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            padding: 16px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(7,10,16,.75);
+
+            backdrop-filter: blur(10px);
+        }
+
+        .memory-text h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 22px;
+
+            color: #f4d98c;
+
+            margin-bottom: 6px;
+        }
+
+        .memory-text p {
+
+            color: #9da5b1;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           LETTER
+        ========================================= */
+
+        .letter {
+
+            max-width: 780px;
+
+            margin: auto;
+
+            padding:
+                clamp(30px, 6vw, 60px);
+
+            background: #111722;
+
+            border:
+
+                1px solid
+                rgba(216,184,106,.16);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.35);
+
+            position: relative;
+        }
+
+        .letter::after {
+
+            content: "✦";
+
+            position: absolute;
+
+            top: 25px;
+            right: 30px;
+
+            color: #d8b86a;
+
+            font-size: 25px;
+        }
+
+        .letter h3 {
+
+            font-family: "Playfair Display", serif;
+
+            color: #ffffff;
+
+            font-size: 32px;
+
+            margin-bottom: 25px;
+        }
+
+        .letter p {
+
+            color: #aeb5c0;
+
+            line-height: 2;
+
+            margin-bottom: 18px;
+        }
+
+        .signature {
+
+            margin-top: 30px;
+
+            text-align: right;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            font-style: italic;
+
+            color: #d8b86a;
+        }
+
+        /* =========================================
+           WISH
+        ========================================= */
+
+        .wish-box {
+
+            text-align: center;
+
+            padding:
+                clamp(40px, 7vw, 70px) 25px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111d2d,
+                    #171719
+                );
+
+            border: 1px solid
+                rgba(216,184,106,.16);
+        }
+
+        .wish-box h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size:
+                clamp(35px, 6vw, 55px);
+
+            color: white;
+
+            margin-bottom: 18px;
+        }
+
+        .wish-box p {
+
+            max-width: 650px;
+
+            margin:
+                0 auto 30px;
+
+            color: #9da5b1;
+
+            line-height: 1.8;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            color: #68717e;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #d8b86a;
+        }
+
+        /* =========================================
+           MUSIC BUTTON
+        ========================================= */
+
+        .music-btn {
+
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 52px;
+            height: 52px;
+
+            border: 1px solid
+                rgba(216,184,106,.4);
+
+            border-radius: 50%;
+
+            background: #121925;
+
+            color: #d8b86a;
+
+            cursor: pointer;
+
+            z-index: 50;
+
+            display: none;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.35);
+
+            transition: .3s;
+        }
+
+        .music-btn:hover {
+
+            transform: scale(1.08);
+
+            background: #192438;
+        }
+
+        /* =========================================
+           CONFETTI
+        ========================================= */
+
+        .confetti {
+
+            position: fixed;
+
+            top: -20px;
+
+            width: 7px;
+            height: 7px;
+
+            z-index: 100;
+
+            pointer-events: none;
+
+            animation:
+                confettiFall
+                3s
+                linear
+                forwards;
+        }
+
+        @keyframes confettiFall {
+
+            to {
+
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            section {
+                padding: 80px 18px;
+            }
+
+            .memories {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .memory-card {
+
+                min-height: 280px;
+            }
+
+            .opening-card {
+
+                padding:
+                    45px 25px;
+            }
+
+            .message-card {
+
+                padding:
+                    40px 25px;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            .opening-card h1 {
+
+                font-size: 48px;
+            }
+
+            .hero h1 {
+
+                font-size: 48px;
+            }
+
+            .hero .name {
+
+                font-size: 40px;
+            }
+
+            .hero-icon {
+
+                font-size: 60px;
+            }
+
+            .letter {
+
+                padding:
+                    30px 22px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="background"></div>
+
+    <!-- FLOATING STARS -->
+    <div id="stars"></div>
+
+
+    <!-- =========================================
+         OPENING
+    ========================================= -->
+
+    <section id="opening">
+
+        <div class="opening-card">
+
+            <div class="eyebrow">
+                A Special Surprise
+            </div>
+
+            <div class="opening-icon">
+                🎁
+            </div>
+
+            <h1>
+                Something <span>Special</span>
+            </h1>
+
+            <p>
+                Ada sedikit kejutan yang dibuat khusus untuk hari spesialmu.
+                Buka perlahan dan jangan lupa tersenyum.
+            </p>
+
+            <button
+                class="btn"
+                onclick="openBirthday()">
+
+                Open Your Surprise ✦
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================= -->
+
+    <main id="main">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="container hero-content">
+
+                <div class="hero-icon">
+                    🎂
+                </div>
+
+                <div class="eyebrow">
+                    Today is your special day
+                </div>
+
+                <h1>
+                    Happy Birthday
+                </h1>
+
+                <!-- GANTI NAMA DI SINI -->
+
+                <div class="name">
+                    ADI MAHMUDA ROMADANU ✦
+                </div>
+
+                <p>
+                    Selamat bertambah usia.
+                    Semoga perjalanan di tahun ini membawa
+                    lebih banyak kebahagiaan, pengalaman,
+                    dan hal-hal baik yang tidak pernah kamu duga.
+                </p>
+
+                <button
+                    class="btn"
+                    onclick="
+                    document
+                    .getElementById('message')
+                    .scrollIntoView();
+                    ">
+
+                    Scroll Ke Bawah ↓
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             MESSAGE
+        ========================================= -->
+
+        <section id="message">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        A little message
+                    </span>
+
+                    <h2>
+                        For You
+                    </h2>
+
+                </div>
+
+
+                <div class="message-card">
+
+                    <div class="message-icon">
+                        ✦
+                    </div>
+
+                    <p>
+                        “Selamat ulang tahun, kamu. 🤍
+                         Semoga di usia yang baru, semua yang kamu 
+                         semogakan perlahan menjadi nyata.Terima kasih
+                         sudah hadir dan menjadi bagian dari cerita aku. 
+                         Semoga hari ini, besok, dan hari-hari setelahnya 
+                         selalu ada alasan untuk kamu tersenyum. 
+                         Stay happy, stay healthy, and keep being you. I’m always rooting for you. ✨”
+                    </p>
+
+                    <div class="gold-line"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             MEMORIES
+        ========================================= -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        Good times
+                    </span>
+
+                    <h2>
+                        Little Memories
+                    </h2>
+
+                </div>
+
+
+                <div class="memories">
+
+
+                    <div class="memory-card">
+
+                        <div class="memory-icon">
+                             <img src="dsn (1).jpeg" width="200px">
+
+                        </div>
+
+                        <div class="memory-text">
+
+                            <h3>
+                                Bocil Era 👶🏻
+                            </h3>
+                                Masih polos, belum tahu kalau nanti hidup bakal penuh tugas dan tanggung jawab. Wkwk.
+                            <p>
+                                
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="memory-card">
+
+                        <div class="memory-icon">
+                            <img src="dsn (2).jpeg" width="200px">
+
+                        </div>
+
+                        <div class="memory-text">
+
+                            <h3>
+                                Mode Sarjana: ON 🎓
+                            </h3>
+
+                            <p>
+                                Dari bocil yang masih polos sampai jadi manusia dewasa. 
+                                Walaupun kadang masih suka random juga. 😂
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="memory-card">
+
+                        <div class="memory-icon">
+                             <img src="dsn (1).jpeg" width="200px">
+
+                        </div>
+
+                        <div class="memory-text">
+
+                            <h3>
+                                Bocil Era 👶🏻
+                            </h3>
+
+                            <p>
+                                Ngga ada foto lagii jdi pake foto ini lagi ajaa,
+                                salah siapa ngga pernah ngirim fotoo.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             LETTER
+        ========================================= -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        From the heart
+                    </span>
+
+                    <h2>
+                        A Little Letter
+                    </h2>
+
+                </div>
+
+
+                <div class="letter">
+
+                    <h3>
+                        Haii cintakuuu.
+                    </h3>
+
+
+                    <p>
+                        Selamat ulang tahun ya.
+                        Semoga hari ini menjadi salah satu
+                        hari yang menyenangkan untuk kamu.
+                    </p>
+
+
+                    <p>
+                        Bertambahnya usia berarti bertambah
+                        juga cerita, pengalaman, dan hal-hal
+                        yang sudah kamu lewati.
+                        Tidak semuanya mudah, tapi kamu berhasil
+                        sampai di titik ini.
+                    </p>
+
+
+                    <p>
+                        Semoga di tahun yang baru ini,
+                        kamu bisa mendapatkan banyak hal
+                        yang kamu inginkan.
+                        Semoga pekerjaan, pendidikan,
+                        keluarga, pertemanan, dan semua
+                        hal yang sedang kamu perjuangkan
+                        berjalan dengan baik.
+                    </p>
+
+
+                    <p>
+                        Jangan lupa untuk menikmati prosesnya.
+                        Tidak harus selalu terburu-buru.
+                        Pelan-pelan saja, yang penting tetap
+                        berjalan dan jangan menyerah pada
+                        hal-hal yang kamu impikan.
+                    </p>
+
+
+                    <p>
+                        Terima kasih sudah menjadi bagian
+                        dari cerita yang indah.
+                        Semoga ke depannya ada lebih banyak
+                        alasan untuk tersenyum dan lebih banyak
+                        momen yang bisa dikenang.
+                    </p>
+
+
+                    <div class="signature">
+                        With love, always ✦
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             WISH
+        ========================================= -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="wish-box">
+
+                    <h2>
+                        Make A Wish
+                    </h2>
+
+                    <p>
+                        Pejamkan mata sebentar.
+                        Pikirkan satu hal yang paling kamu inginkan.
+                        Setelah itu, buat satu permintaan.
+                        Semoga tahun ini menjadi tahun yang baik untukmu.
+                        Dan semoga 5 tahun kedepan kamu udh jadi suami aku hhi.
+                    </p>
+
+
+                    <button
+                        class="btn"
+                        onclick="makeWish()">
+
+                        Make a Wish ✦
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             FOOTER
+        ========================================= -->
+
+        <footer>
+
+            Made with
+            <strong>✦</strong>
+            Fina cantikkk.
+
+            <br><br>
+
+            ©cantiknya kamuu
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         MUSIC BUTTON
+    ========================================= -->
+
+    <button
+        class="music-btn"
+        id="musicButton"
+        onclick="toggleMusic()">
+
+        🎵
+
+    </button>
+
+
+    <!--
+        MUSIK
+
+        Masukkan file:
+        music.mp3
+
+        ke folder yang sama dengan index.html.
+
+        Kemudian hapus tanda komentar
+        pada bagian audio di bawah.
+
+    -->
+
+    
+
+    <audio id="music" loop>
+
+        <source
+            src="lagu.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+    
+
+
+
+    <script>
+
+        /* =========================================
+           OPEN WEBSITE
+        ========================================= */
+
+        function openBirthday() {
+
+            document
+                .getElementById("opening")
+                .style.display = "none";
+
+            document
+                .getElementById("main")
+                .style.display = "block";
+
+            document
+                .getElementById("musicButton")
+                .style.display = "block";
+
+            createConfetti();
+
+            createStars();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        /* =========================================
+           CONFETTI
+        ========================================= */
+
+        function createConfetti() {
+
+            const symbols = [
+                "✦",
+                "✧",
+                "•",
+                "◆",
+                "◇"
+            ];
+
+            for (
+                let i = 0;
+                i < 80;
+                i++
+            ) {
+
+                const confetti =
+                    document.createElement("div");
+
+                confetti
+                    .classList
+                    .add("confetti");
+
+                confetti.innerHTML =
+                    symbols[
+                        Math.floor(
+                            Math.random()
+                            * symbols.length
+                        )
+                    ];
+
+                confetti.style.left =
+                    Math.random() * 100 + "vw";
+
+                confetti.style.color =
+                    Math.random() > .5
+                    ? "#d8b86a"
+                    : "#8faed1";
+
+                confetti.style.fontSize =
+                    (Math.random() * 12 + 7)
+                    + "px";
+
+                confetti.style.animationDelay =
+                    Math.random() * 1.5
+                    + "s";
+
+                confetti.style.animationDuration =
+                    (Math.random() * 2 + 2)
+                    + "s";
+
+                document.body
+                    .appendChild(confetti);
+
+
+                setTimeout(() => {
+
+                    confetti.remove();
+
+                }, 5000);
+
+            }
+
+        }
+
+
+
+        /* =========================================
+           FLOATING STARS
+        ========================================= */
+
+        function createStars() {
+
+            const container =
+                document.getElementById("stars");
+
+
+            setInterval(() => {
+
+                const star =
+                    document.createElement("div");
+
+                star.classList.add("star");
+
+                star.innerHTML =
+                    Math.random() > .5
+                    ? "✦"
+                    : "✧";
+
+                star.style.left =
+                    Math.random() * 100 + "vw";
+
+                star.style.bottom =
+                    "-30px";
+
+                star.style.fontSize =
+                    (Math.random() * 12 + 7)
+                    + "px";
+
+                star.style.animationDuration =
+                    (Math.random() * 6 + 6)
+                    + "s";
+
+
+                container.appendChild(star);
+
+
+                setTimeout(() => {
+
+                    star.remove();
+
+                }, 13000);
+
+            }, 600);
+
+        }
+
+
+
+        /* =========================================
+           MAKE A WISH
+        ========================================= */
+
+        function makeWish() {
+
+            createConfetti();
+
+
+            setTimeout(() => {
+
+                alert(
+                    "✦ Semoga semua harapan baikmu tercapai. Happy Birthday! 🎂"
+                );
+
+            }, 400);
+
+        }
+
+
+
+        /* =========================================
+           MUSIC
+        ========================================= */
+
+        let musicPlaying = false;
+
+
+        function toggleMusic() {
+
+            const music =
+                document.getElementById("music");
+
+
+            if (!music) {
+
+                alert(
+                    "Tambahkan file music.mp3 ke folder website terlebih dahulu."
+                );
+
+                return;
+
+            }
+
+
+            if (musicPlaying) {
+
+                music.pause();
+
+                musicPlaying = false;
+
+                document
+                    .getElementById("musicButton")
+                    .innerHTML = "🎵";
+
+            }
+
+            else {
+
+                music.play();
+
+                musicPlaying = true;
+
+                document
+                    .getElementById("musicButton")
+                    .innerHTML = "🔊";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
